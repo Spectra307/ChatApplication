@@ -3,14 +3,15 @@
 ## Issues Found & Fixed
 
 ### 1. **Mockito Runner Incompatibility** ✅ FIXED
-**Problem**: Using deprecated `org.mockito.runners.MockitoJUnitRunner`
-- Mockito 5.2.0 moved the runner to `org.mockito.junit.runners.MockitoJUnitRunner`
+**Problem**: Mockito 5.2.0 is incompatible with JUnit 4.13.2
+- Mockito 5.x requires JUnit 5 (Jupiter) or different setup
+- Using `org.mockito.junit.runners.MockitoJUnitRunner` doesn't exist in Mockito 5.x
 - Would cause `ClassNotFoundException` at runtime
 
 **Fix**:
-- Updated import in `ChatControllerTest.java`
-- Added `mockito-junit-jupiter` dependency to `pom.xml`
-- Changed: `@RunWith(MockitoJUnitRunner.class)` with new runner package
+- Downgraded to **Mockito 4.11.0** (fully compatible with JUnit 4)
+- Reverted import to `org.mockito.runners.MockitoJUnitRunner`
+- Kept `mockito-junit-jupiter` (v4.11.0) for future JUnit 5 migration
 
 ### 2. **Static Initialization in Tests** ✅ FIXED
 **Problem**: `ChatControllerTest` was calling `ChatApplicationMain.getAuthService()` and `ChatApplicationMain.getChatServer()`

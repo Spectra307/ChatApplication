@@ -49,19 +49,19 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Mockito for Mocking -->
+        <!-- Mockito for Mocking (4.x compatible with JUnit 4) -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.2.0</version>
+            <version>4.11.0</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- Mockito JUnit Runner for Test Annotations -->
+        <!-- Mockito JUnit Runner -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.2.0</version>
+            <version>4.11.0</version>
             <scope>test</scope>
         </dependency>
 
