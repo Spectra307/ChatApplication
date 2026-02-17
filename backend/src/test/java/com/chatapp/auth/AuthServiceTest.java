@@ -1,5 +1,6 @@
 package com.chatapp.auth;
 
+import com.chatapp.config.TestConfig;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -21,7 +22,7 @@ public class AuthServiceTest {
      */
     @Before
     public void setUp() {
-        authService = new AuthService();
+        authService = TestConfig.createTestAuthService();
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.chatapp.server;
 
+import com.chatapp.config.TestConfig;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -38,7 +39,7 @@ public class ChatServerTest {
      */
     @Before
     public void setUp() {
-        chatServer = new ChatServer();
+        chatServer = TestConfig.createTestChatServer();
         testListener = new TestChatListener();
         chatServer.addListener(testListener);
     }

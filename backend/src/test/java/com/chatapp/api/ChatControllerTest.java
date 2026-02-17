@@ -1,6 +1,5 @@
 package com.chatapp.api;
 
-import com.chatapp.ChatApplicationMain;
 import com.chatapp.auth.AuthService;
 import com.chatapp.server.ChatServer;
 import org.junit.Before;
@@ -8,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.runners.MockitoJUnitRunner;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,10 +37,12 @@ public class ChatControllerTest {
 
     /**
      * Setup - Initialize controller with mocked dependencies
+     * MockitoJUnitRunner will inject mocks automatically, no need to call new ChatController()
      */
     @Before
     public void setUp() {
-        chatController = new ChatController();
+        // Mocks are injected by @RunWith(MockitoJUnitRunner.class)
+        // No explicit initialization needed
     }
 
     /**
