@@ -52,11 +52,13 @@ public class DatabaseConnection {
     public boolean testConnection() {
         try (Connection conn = getConnection()) {
             if (conn != null) {
-                System.out.println("Database connection successful!");
+                System.out.println("✓ Database connection successful!");
                 return true;
             }
         } catch (SQLException e) {
-            System.err.println("Database connection failed: " + e.getMessage());
+            System.out.println("⚠️  Database connection failed: " + e.getMessage());
+            System.out.println("   Make sure PostgreSQL is running on " + DB_URL);
+            System.out.println("   Or see BACKEND_SETUP.md for configuration details.");
         }
         return false;
     }

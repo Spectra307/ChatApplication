@@ -26,12 +26,17 @@ public class ChatApplicationMain {
         authService = new AuthService();
         chatServer = new ChatServer();
 
-        // Test database connection
-        if (dbConnection.testConnection()) {
+        // Test database connection (non-blocking)
+        System.out.println("\n⚙️  Initializing services...");
+        boolean dbConnected = dbConnection.testConnection();
+        
+        if (dbConnected) {
             System.out.println("✓ Database connection successful");
         } else {
-            System.err.println("✗ Database connection failed");
-            System.exit(1);
+            System.out.println("⚠️  WARNING: Database connection failed");
+            System.out.println("   PostgreSQL may not be running.");
+            System.out.println("   Setup: See backend/BACKEND_SETUP.md");
+            System.out.println("   Application will continue in demo mode.\n");
         }
 
         System.out.println("✓ AuthService initialized");
